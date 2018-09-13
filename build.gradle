@@ -3,11 +3,14 @@ apply plugin: 'application'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -15,28 +18,26 @@ dependencies {
     compile group: 'io.appium', name: 'java-client', version: '5.0.4'
     testCompile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
     testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
 }
 
-
-test {
-    if (browser == null) {
-        systemProperty("browser", "chrome");
-    } else {
-        systemProperty("browser", browser);
-    }
-    if (platform.equals("web")) {
-        println("web");
-        systemProperty("platform", "web");
-        systemProperty "cucumber.options", "--tags @web --tags ~@ignore";
-    } else if (platform.equals("android")) {
-        println(platform)
-        systemProperty("platform", "android");
-        systemProperty "cucumber.options", "--tags @android --tags ~@ignore"
-    } else if (platform.equals("ios")) {
-        println(platform)
-        systemProperty("platform", "ios");
-        systemProperty "cucumber.options", "--tags @ios --tags ~@ignore"
-    } else {
-        println('Did not receive correct platform');
-    }
-}
+//
+//test {
+//    if (platform.equals("web")) {
+//        println("web");
+//        systemProperty("platform", "web");
+//        systemProperty "cucumber.options", "--tags @web --tags ~@ignore";
+//    } else if (platform.equals("android")) {
+//        println(platform)
+//        systemProperty("platform", "android");
+//        systemProperty "cucumber.options", "--tags @android --tags ~@ignore"
+//    } else if (platform.equals("ios")) {
+//        println(platform)
+//        systemProperty("platform", "ios");
+//        systemProperty "cucumber.options", "--tags @ios --tags ~@ignore"
+//    } else {
+//        println('Did not receive correct platform');
+//    }
+//}

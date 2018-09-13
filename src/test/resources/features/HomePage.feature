@@ -1,20 +1,16 @@
-Feature: Wordpress SignUp/SignIn Feature
+Feature: On-boarding
+  As an application user,
+  I should be able to view the landing page
 
-  @android @ios
-  Scenario: Wordpress Login scenario
-    Given User chooses "Login" option
-    Then User should see page title as "Log in to WordPress.com using an email address to manage all your WordPress sites."
+  @android
+  Scenario: As a first time user, I want to verify the landing page
+    Given I am on the On-boarding page
+#    Then I should see following selected categories
+#    |category|
+#    |markets |
+#    |farms   |
+#    |restaurants|
+#    |urban farms|
+#    |store    |
+#  |events    |
 
-  @android @ios @web
-  Scenario: Wordpress Signup scenario
-    Given User chooses "Signup" option
-
-  @web
-  Scenario: Wordpress Login scenario
-    Given User chooses "Login" option
-    Then User should see page title as "Log in to your account."
-
-  @web
-  Scenario: Wordpress Login scenario
-    Given User chooses "Login" option
-    Then User should see page title as "Log in to your account."

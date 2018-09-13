@@ -15,7 +15,8 @@ public class Hooks {
 
     @Before()
     public void beforeTestsRun() throws IOException {
-        DriverManager.driverType = System.getProperty("platform"); // Getting the platform name from gradle commandline and setting this value in build.gradle
+//        DriverManager.driverType = System.getProperty("platform"); // Getting the platform name from gradle commandline and setting this value in build.gradle
+        DriverManager.driverType = "android";
         if (DriverManager.driverType.equals("web")) {
             DriverManager.startAUT();
         } else if (DriverManager.driverType.equals("android") || DriverManager.driverType.equals("ios")) {

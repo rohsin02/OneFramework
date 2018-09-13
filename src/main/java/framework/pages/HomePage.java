@@ -2,6 +2,7 @@ package framework.pages;
 
 import framework.core.Page;
 import framework.exceptionManager.LocatorNotSetException;
+import framework.logger.LogUtils;
 
 import java.util.HashMap;
 
@@ -35,5 +36,12 @@ public class HomePage extends Page {
     public SignupPage chooseSignUpOption() throws LocatorNotSetException {
         click(eleSignupButton());
         return new SignupPage();
+    }
+
+    public HomePage isLandingPage(){
+        if(getAllValues("Looking For:")) {
+            LogUtils.INFO("**** On-boarding Page Loaded Successfully  ****");
+        }
+        return this;
     }
 }
